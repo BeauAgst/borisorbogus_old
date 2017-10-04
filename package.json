@@ -1,0 +1,24 @@
+{
+  "name": "borisorbogus",
+  "version": "1.0.0",
+  "description": "Boris has said some outlandish things throughout the years. Can you tell which ones are his and which are made up?",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "start": "npm run build && node dist/app.js"
+  },
+  "author": "Beau August",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.7.2",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-import": "^2.7.0",
+    "rimraf": "^2.6.2"
+  }
+}
