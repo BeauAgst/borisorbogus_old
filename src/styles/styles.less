@@ -1,0 +1,116 @@
+body {
+	background: #67BCDB;
+}
+
+a {
+	text-decoration: none;
+}
+
+.game-container {
+	display: none;
+	position: relative;
+	width: 100%;
+
+	&.active {
+		display: block;
+	}
+}
+
+.cue-card-container {
+	margin-top: 50px;
+}
+
+.cue-card {
+	margin: 0 auto;
+	z-index: -1;
+	font-family: 'Pangolin', cursive;
+	
+	&.behind {
+		position: absolute;
+		top: 0;
+		left: 50%;	
+		transform: translateX(-50%) rotate(4deg);
+	}
+
+	&.active {
+		z-index: 1;
+		transform: rotate(1deg);
+	}
+}
+
+.cue-card {
+	background: #fdfdfd;
+	background: linear-gradient(top, #DFE8EC 0%, white 8%) 0 60px;
+	background-size: 100% 30px;
+	width: 400px;
+	box-shadow: 2px 1px 19px rgba(0, 0, 0, 0.15);
+	
+	&:after {
+		content: ''; 
+		position: absolute; 
+		width: 0px; 
+		top: 0; 
+		left: 40px; 
+		bottom: 0; 
+		border-left: 1px solid #F8D3D3;
+	}
+
+	.inner {
+		padding-bottom: 75%;
+	}
+	
+	.content {
+		position: absolute;
+		top: 30px;
+		right: 10px;
+		left: 50px;
+	}
+	
+	.title {
+		line-height: 30px;
+		font-size: 18px;
+	}
+	
+	.quote {
+		line-height: 30px;
+		margin-top: 30px;
+	}
+		
+	span {
+		position: relative;
+		top: 1px;
+	}
+}
+
+.button-container {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.button {
+	display: inline-block;
+	margin: 0 5px;
+	padding: 0 20px;
+	line-height: 40px;
+	border-radius: 7px;
+	color: #fff;
+	background: #3f50b1;
+	text-transform: uppercase;
+	font-family: 'Montserrat';
+	
+	span {
+		position: relative;
+		top: 1px;
+	}
+}
+
+.tick {
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	left: 50%;
+	
+	&:before {
+		content:'\2714\0020';
+	}
+}
