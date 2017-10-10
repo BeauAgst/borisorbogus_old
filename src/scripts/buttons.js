@@ -8,18 +8,21 @@ const buttons = {
     },
 
     startGame() {
-        const startButton = document.querySelector('.start-game');
+        const startButton = document.querySelector('.start-game .btn');
         startButton.addEventListener('click', (e) => {
             e.preventDefault();
             const introContainer = document.querySelector('.intro-container');
             const gameContainer = document.querySelector('.game-container');
-            document.body.removeChild(introContainer);
+            introContainer.classList.add('removed');
+            setTimeout(() => {
+                document.body.removeChild(introContainer);
+            }, 700);
             gameContainer.classList.add('active');
         });
     },
 
     correctAnswer() {
-        const correctButton = document.querySelector('.correct-button');
+        const correctButton = document.querySelector('.correct-button .btn');
         correctButton.addEventListener('click', (e) => {
             e.preventDefault();
             const card = document.querySelector('.cue-card.active');
