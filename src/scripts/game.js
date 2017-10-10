@@ -25,6 +25,7 @@ const game = {
 
     init() {
         this.getCard();
+        this.correctAnswer();
     },
 
     getCard() {
@@ -51,6 +52,18 @@ const game = {
         card.dataset.index = index;
         card.innerHTML = content;
         container.appendChild(card);
+    },
+
+    correctAnswer() {
+        const correctButton = document.querySelector('.correct-button .btn');
+        const container = document.querySelector('.cue-card-container');
+        correctButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log(e);
+            const card = document.querySelector('.cue-card.active');
+            container.removeChild(card);
+            this.getCard();
+        });
     },
 
     endGame() {

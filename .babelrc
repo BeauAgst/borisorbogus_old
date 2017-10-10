@@ -1,0 +1,16 @@
+{  
+    "globals": {
+        "window": true,
+        "document": true
+    },
+    "presets": [
+        [
+            "env", {
+                "browser": true,
+                "targets": {
+                    "browsers": ["last 2 versions", "safari >= 7"]
+                }
+            }
+        ]
+    ]
+}

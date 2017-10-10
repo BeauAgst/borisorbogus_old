@@ -4,7 +4,6 @@ const buttons = {
 
     init() {
         this.startGame();
-        this.correctAnswer();
     },
 
     startGame() {
@@ -17,18 +16,8 @@ const buttons = {
             setTimeout(() => {
                 document.body.removeChild(introContainer);
             }, 700);
+            game.init();
             gameContainer.classList.add('active');
-        });
-    },
-
-    correctAnswer() {
-        const correctButton = document.querySelector('.correct-button .btn');
-        correctButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            const card = document.querySelector('.cue-card.active');
-            const container = document.querySelector('.cue-card-container');
-            container.removeChild(card);
-            game.getCard();
         });
     },
 };

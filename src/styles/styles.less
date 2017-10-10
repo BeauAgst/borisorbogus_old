@@ -6,6 +6,44 @@
 @background       : #0087dc;
 
 
+
+.title-container {
+	display: inline-block;
+	position: relative;
+	line-height: 1;
+	font-size: 8vw;
+	background: @background;
+	border-radius: .1em;
+	box-shadow: 2px 1px 19px rgba(0, 0, 0, 0.15);
+
+	div {
+		display: inline-block;
+		vertical-align: top;
+		padding: 0.05em .2em;
+		border-radius: .2em;
+		letter-spacing: -0.01em;
+		line-height: 1;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 900;
+		Background: @background;
+	}
+	
+	span {
+		line-height: 1;
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+
+
+@media (min-width: 1200px) {
+
+	.title-container {
+		font-size: 96px;
+	}
+}	
+
 .intro-container {
 	position: absolute;
 	z-index: 2;
@@ -45,35 +83,6 @@
 		animation: scale 8s infinite ease-in-out;
 	}
 
-	.title {
-		display: inline-block;
-		position: relative;
-		line-height: 1;
-		font-size: 8vw;
-		background: @background;
-		border-radius: .1em;
-		box-shadow: 2px 1px 19px rgba(0, 0, 0, 0.15);
-
-		div {
-			display: inline-block;
-			vertical-align: top;
-			padding: 0.05em .2em;
-			border-radius: .2em;
-			letter-spacing: -0.01em;
-			line-height: 1;
-			color: #fff;
-			text-transform: uppercase;
-			font-weight: 900;
-			Background: @background;
-		}
-		
-		span {
-			line-height: 1;
-			display: inline-block;
-			vertical-align: top;
-		}
-	}
-
 	.introduction {
 		margin: 0 auto;
 		padding: 30px 0;
@@ -91,37 +100,45 @@
 		&:hover {
 			padding: 0 30px;
 			line-height: 50px;
-			font-size: 18px;
+			letter-spacing: .1em;
+			font-size: 19px;
 			box-shadow: 2px 1px 19px rgba(0, 0, 0, 0.15);
-		}
-	}
-}
-
-@media (min-width: 1200px) {
-
-	.intro-container {
-
-		.title {
-			font-size: 96px;
+			transform: rotate(3deg);
 		}
 	}
 }
 
 .game-container {
 	display: none;
-	position: absolute;
-	top: 50%;
-	right: 0;
-	left: 0;
-	transform: translateY(-50%);
-	z-index: 1;
-	width: 100%;
+	text-align: center;
+	padding-top: 100px;
 
 	&.active {
 		display: block;
 		animation: fadeIn .7s;
 		animation-delay: .4s;
 	}
+
+	.title-container {
+		margin-bottom: 100px;
+	}
+
+	.btn {
+		padding: 0.05em .2em;
+		border-radius: .2em;
+		letter-spacing: -0.01em;
+		line-height: 1;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 900;
+		font-size: 24px;
+		Background: @background;		
+	}
+}
+
+.cue-card-container {
+	position: relative;
+	text-align: left;
 }
 
 .cue-card {
@@ -148,6 +165,7 @@
 	background-size: 100% 30px;
 	width: 400px;
 	box-shadow: 2px 1px 19px rgba(0, 0, 0, 0.15);
+	font-size: 18px;
 	
 	&:after {
 		content: ''; 
@@ -172,7 +190,6 @@
 	
 	.title {
 		line-height: 30px;
-		font-size: 18px;
 	}
 	
 	.quote {
