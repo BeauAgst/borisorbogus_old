@@ -1,9 +1,100 @@
+html,
 body {
-	background: #67BCDB;
+	height: 100%;
+}
+
+html {
+	line-height: 1.4;
+	font-family: 'Montserrat';
+}
+
+body {
+    margin: 0;
+	background: #daf1ff;
+	-webkit-font-smoothing: antialiased;
+	font-size: 16px;
 }
 
 a {
 	text-decoration: none;
+}
+
+@background       : #0087dc;
+
+
+.intro-container {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	left: 0;
+	transform: translateY(-50%);
+	text-align: center;
+	animation: fadeIn .7s;
+	animation-fill-mode: forwards;
+
+	&:before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: 50%;
+		left: 50%;
+		width: 70vw;
+		height: 70vw;
+		max-height: 80vh;
+		transform: translate(-50%, -50%) rotate(-3deg);
+		background: #fff;
+		animation: scale 8s infinite ease-in-out;
+	}
+
+	.title {
+		display: inline-block;
+		position: relative;
+		line-height: 1;
+		font-size: 8vw;
+		background: @background;
+		border-radius: .1em;
+	
+		&:after {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			transform: translate(-50%, -50%);
+			top: 50%;
+			left: 50%;
+			height: 1.1em;
+			background: @background;
+			border-radius: 30%;
+		}
+			
+		div {
+			display: inline-block;
+			vertical-align: top;
+			padding: 0.05em .2em;
+			border-radius: .2em;
+			letter-spacing: -0.01em;
+			line-height: 1;
+			color: #fff;
+			text-transform: uppercase;
+			font-weight: bold;
+			Background: @background;
+		}
+		
+		span {
+			line-height: 1;
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+
+	.introduction {
+		margin: 0 auto;
+		padding: 30px 0;
+		max-width: 500px;
+	}
+
+	.button {
+		display: block;
+	}
 }
 
 .game-container {
@@ -40,7 +131,7 @@ a {
 
 .cue-card {
 	background: #fdfdfd;
-	background: linear-gradient(top, #DFE8EC 0%, white 8%) 0 60px;
+	background: linear-gradient(to bottom, #DFE8EC 0%, white 8%) 0 60px;
 	background-size: 100% 30px;
 	width: 400px;
 	box-shadow: 2px 1px 19px rgba(0, 0, 0, 0.15);
@@ -89,6 +180,10 @@ a {
 
 .button {
 	display: inline-block;
+}
+
+.btn {
+	display: inline-block;
 	margin: 0 5px;
 	padding: 0 20px;
 	line-height: 40px;
@@ -112,5 +207,16 @@ a {
 	
 	&:before {
 		content:'\2714\0020';
+	}
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes scale {
+	50% {
+		transform: translate(-50%, -50%) scale(1.02) rotate(3deg);
 	}
 }
