@@ -16,6 +16,11 @@
 	font-family: 'Montserrat';
 	transition: all .3s;
 
+	&.disabled {
+		opacity: .5;
+		pointer-events: none;
+	}
+
 	&:hover {
 		color: #fff;
 		background: lighten(#3f50b1, 5%);

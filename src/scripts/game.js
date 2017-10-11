@@ -1,35 +1,16 @@
+import quotes from './quotes';
+
 const game = {
-    quotes: [
-        {
-            topic: 'Libya',
-            quote: 'They have a got brilliant vision to turn Sirte ... into the next Dubai. The only thing they’ve got to do is clear the dead bodies.',
-        },
-        {
-            topic: 'Turkish president, Recep Tayyip Erdogan',
-            quote: 'There was a young fellow from Ankara, Who was a terrific wankerer. Till he sowed his wild oats, With the help of a goat, But he didn\'t even stop to thankera.',
-        },
-        {
-            topic: 'Black people',
-            quote: 'It is said that the Queen has come to love the Commonwealth, partly because it supplies her with regular cheering crowds of flag-waving piccaninnies.',
-        },
-        {
-            topic: 'Hillary Clinton',
-            quote: 'She\'s got dyed blonde hair and pouty lips, and a steely blue stare, like a sadistic nurse in a mental hospital.',
-        },
-        {
-            topic: 'Gay marriage',
-            quote: 'If gay marriage was OK – and I was uncertain on the issue – then I saw no reason in principle why a union should not be consecrated between three men, as well as two men, or indeed three men and a dog',
-        },
-    ],
     usedQuotes: [],
 
     init() {
         this.getCard();
         this.correctAnswer();
+        this.wrongAnswer();
     },
 
     getCard() {
-        const quotesCount = this.quotes.length;
+        const quotesCount = quotes.length;
         const index = Math.floor(Math.random() * quotesCount);
         const beenUsed = this.usedQuotes.indexOf(index) !== -1;
         if (beenUsed && this.usedQuotes.length === quotesCount) return this.endGame();
@@ -39,9 +20,15 @@ const game = {
     },
 
     getQuote(index) {
-        const topic = `On... ${this.quotes[index].topic}`;
-        const quote = `‘${this.quotes[index].quote}’`;
+        const topic = `On... ${quotes[index].topic}`;
+        const quote = `‘${quotes[index].quote}’`;
         this.setCard(index, topic, quote);
+    },
+
+    clearCard() {
+        const container = document.querySelector('.cue-card-container');
+        const card = document.querySelector('.cue-card.active');
+        container.removeChild(card);
     },
 
     setCard(index, topic, quote) {
@@ -55,15 +42,39 @@ const game = {
     },
 
     correctAnswer() {
-        const correctButton = document.querySelector('.correct-button .btn');
-        const container = document.querySelector('.cue-card-container');
-        correctButton.addEventListener('click', (e) => {
+        const button = document.querySelector('.correct-button .btn');
+        button.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log(e);
-            const card = document.querySelector('.cue-card.active');
-            container.removeChild(card);
-            this.getCard();
+            this.toggleButtons();
+            this.showSources();
         });
+    },
+
+    wrongAnswer() {
+        const button = document.querySelector('.wrong-button .btn');
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.toggleButtons();
+            this.showSources(false);
+        });
+    },
+
+    toggleButtons() {
+        const buttons = document.querySelectorAll('.button-container .btn');
+        buttons.forEach((button) => {
+            button.classList.add('disabled');
+        });
+    },
+
+    showSources(correct = true) {
+        const infoCard = document.querySelector('.cue-card.more');
+        const title = correct ? 'Correct!' : 'Nope!';
+        const { index } = document.querySelector('.cue-card.active').dataset;
+        document.querySelector('.cue-card.more .answer span').innerHTML = title;
+        document.querySelector('.cue-card.more .information span').innerHTML = quotes[index].more;
+        if (correct) infoCard.classList.remove('incorrect');
+        else infoCard.classList.add('incorrect');
+        infoCard.classList.add('show');
     },
 
     endGame() {
