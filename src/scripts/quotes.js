@@ -33,7 +33,7 @@ const quotes = [
         topic: 'Gay marriage',
         quote: 'If gay marriage was OK – and I was uncertain on the issue – then I saw no reason in principle why a union should not be consecrated between three men, as well as two men, or indeed three men and a dog',
         more: '',
-        ref: 'An excerpt from his book, "Friends, Voters, Countrymen"',
+        ref: 'https://www.amazon.co.uk/Friends-Voters-Countrymen-Boris-Johnson/dp/0007119143',
     },
 ];
 

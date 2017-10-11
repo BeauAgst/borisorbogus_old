@@ -45,8 +45,9 @@ const game = {
         const button = document.querySelector('.correct-button .btn');
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            this.toggleButtons();
             this.showSources();
+            this.clearCard();
+            this.getCard();
         });
     },
 
@@ -54,27 +55,14 @@ const game = {
         const button = document.querySelector('.wrong-button .btn');
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            this.toggleButtons();
             this.showSources(false);
-        });
-    },
-
-    toggleButtons() {
-        const buttons = document.querySelectorAll('.button-container .btn');
-        buttons.forEach((button) => {
-            button.classList.add('disabled');
+            this.clearCard();
+            this.getCard();
         });
     },
 
     showSources(correct = true) {
-        const infoCard = document.querySelector('.cue-card.more');
-        const title = correct ? 'Correct!' : 'Nope!';
-        const { index } = document.querySelector('.cue-card.active').dataset;
-        document.querySelector('.cue-card.more .answer span').innerHTML = title;
-        document.querySelector('.cue-card.more .information span').innerHTML = quotes[index].more;
-        if (correct) infoCard.classList.remove('incorrect');
-        else infoCard.classList.add('incorrect');
-        infoCard.classList.add('show');
+        console.log(correct);
     },
 
     endGame() {

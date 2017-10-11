@@ -133,22 +133,15 @@
 }
 
 .cue-card {
+	margin: 0 auto;
 	font-family: 'Pangolin', cursive;
 	transition: all .5s;
 	
-	&.more {
+	&.behind {
 		position: absolute;
-		top: 0;
-		left: 20px;	
-		transform: rotate(4deg);
-
-		.inner > div {
-			padding-left: 20px;
-		}
-
-		&.show {
-			transform: translateX(90%) rotate(-1deg);
-		}
+		top: 50%;
+		left: 50%;	
+		transform: translate(-50%, -50%) rotate(4deg);
 	}
 
 	&.active {
