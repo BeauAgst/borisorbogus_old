@@ -7,10 +7,10 @@ const buttons = {
     },
 
     startGame() {
-        const startButton = document.querySelector('.start-game .btn');
+        const startButton = document.querySelector('.begin-game');
         startButton.addEventListener('click', (e) => {
             e.preventDefault();
-            const introContainer = document.querySelector('.intro-container');
+            const introContainer = document.querySelector('.introduction');
             const gameContainer = document.querySelector('.game-container');
             introContainer.classList.add('removed');
             setTimeout(() => {

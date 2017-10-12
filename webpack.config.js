@@ -11,6 +11,15 @@ module.exports = {
         filename: './dist/bundle.js',
     },
     module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['env'],
+                },
+            },
+        ],
         rules: [
             {
                 test: /\.less$/,
@@ -25,8 +34,13 @@ module.exports = {
                     }],
                     fallback: 'style-loader',
                 }),
-            }],
+            },
+        ],
     },
+    stats: {
+        colors: true,
+    },
+    devtool: 'source-map',
     plugins: [
         extractLess,
     ],

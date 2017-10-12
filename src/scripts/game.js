@@ -1,4 +1,5 @@
 import quotes from './quotes';
+import sources from './sources';
 
 const game = {
     usedQuotes: [],
@@ -7,6 +8,7 @@ const game = {
         this.getCard();
         this.correctAnswer();
         this.wrongAnswer();
+        this.nextQuote();
     },
 
     getCard() {
@@ -45,9 +47,7 @@ const game = {
         const button = document.querySelector('.correct-button .btn');
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            this.showSources();
-            this.clearCard();
-            this.getCard();
+            sources.generate();
         });
     },
 
@@ -55,14 +55,18 @@ const game = {
         const button = document.querySelector('.wrong-button .btn');
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            this.showSources(false);
-            this.clearCard();
-            this.getCard();
+            sources.generate(false);
         });
     },
 
-    showSources(correct = true) {
-        console.log(correct);
+    nextQuote() {
+        const button = document.querySelector('.next-quote');
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.clearCard();
+            this.getCard();
+            sources.toggle();
+        });
     },
 
     endGame() {
