@@ -5,23 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0087dc">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="manifest" href="manifest.json">
     <title>Boris or Bogus?</title>
-    <script src="dist/bundle.js" defer></script>
-    <link rel="stylesheet" href="dist/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
 </head>
 <body>
     <div class="introduction">
-        <div class="game-title">
-            <div><span>Boris</span></div>
-            <div><span>or</span></div>
-            <div><span>Bogus</span></div>
+        <div class="game-title-container">
+            <div class="game-title">
+                <div><span>Boris</span></div>
+                <div><span>or</span></div>
+                <div><span>Bogus</span></div>
+            </div>
+            <div class="face">
+                <div class="content">
+                    <div class="eye left-eye"><div class="pupil"></div></div>
+                </div>
+            </div>
         </div>
         <div class="text">
-            <p>Currently stationed as our <strong>'Secretary of State for Foreign and Commonwealth Affairs'</strong>, <a target="_blank" href="https://en.wikipedia.org/wiki/Boris_Johnson">Boris Johnson</a> has made some pretty outlandish and controversial statements throughout the years.</p>
+            <p>Currently stationed as our <strong>'Secretary of State for Foreign and Commonwealth Affairs'</strong>, <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Boris_Johnson">Boris Johnson</a> has made some pretty outlandish and controversial statements throughout the years.</p>
             <p>Can you guess which of the following quotes can be attributed to Boris? And which ones are just flat-out bogus?</p></div>
         <div class="button"><a href="#" class="btn begin-game"><span>Play</span></a></div>
-        
     </div>
     
     <div class="game-container">
@@ -67,6 +71,8 @@
             <a href="#">Print-out Boris mask!</a>
         </div>
     </footer>
-
+    <link rel="stylesheet" href="dist/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
+    <script src="dist/bundle.js"></script>
 </body>
 </html>

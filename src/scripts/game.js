@@ -22,9 +22,8 @@ const game = {
     },
 
     getQuote(index) {
-        const topic = `On... ${quotes[index].topic}`;
-        const quote = `‘${quotes[index].quote}’`;
-        this.setCard(index, topic, quote);
+        const { topic, quote } = quotes[index];
+        this.setCard(index, `On... ${topic}`, quote);
     },
 
     clearCard() {
@@ -33,14 +32,20 @@ const game = {
         container.removeChild(card);
     },
 
-    setCard(index, topic, quote) {
+    setCard(index, topic, quoteArray) {
+        const quote = this.splitQuote(quoteArray);
         const container = document.querySelector('.cue-card-container');
         const card = document.createElement('div');
-        const content = `<div class="inner"><div class="content"><div class="title"><span>${topic}</span></div><div class="quote"><span>${quote}</span></div></div></div>`;
+        const content = `<div class="inner"><div class="content"><div class="title"><span>${topic}</span></div><div class="quote">${quote}</div></div></div>`;
         card.className = 'cue-card active';
         card.dataset.index = index;
         card.innerHTML = content;
         container.appendChild(card);
+    },
+
+    splitQuote(quote) {
+        if (quote.length <= 1) return `<span>${quote}</span>`;
+        return quote.reduce((string, line) => `${string}<span>${line}</span>`, '');
     },
 
     correctAnswer() {
@@ -70,7 +75,7 @@ const game = {
     },
 
     endGame() {
-        this.setCard('end', 'No more quotes', 'Do something here.');
+        this.setCard('end', 'No more quotes', ['Do something here.']);
     },
 };
 
