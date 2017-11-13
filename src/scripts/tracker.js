@@ -43,7 +43,7 @@ const trackMouse = {
                 x: e.pageX - this.pupilRadius - this.left - this.center.x,
                 y: e.pageY - this.pupilRadius - this.top - this.center.y,
             };
-            const distance = Math.sqrt(d.x * d.x + d.y * d.y);
+            const distance = Math.sqrt((d.x * d.x) + (d.y * d.y));
             this.checkThreshold(d, distance, e);
             this.movePupil();
         });
@@ -54,8 +54,8 @@ const trackMouse = {
             this.mouseX = e.pageX - this.eft - this.pupilRadius;
             this.mouseY = e.pageY - this.top - this.pupilRadius;
         } else {
-            this.mouseX = d.x / distance * this.center.x + this.center.x;
-            this.mouseY = d.y / distance * this.center.y + this.center.y;
+            this.mouseX = ((d.x / distance) * this.center.x) + this.center.x;
+            this.mouseY = ((d.y / distance) * this.center.y) + this.center.y;
         }
     },
 

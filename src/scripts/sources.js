@@ -4,7 +4,7 @@ const sources = {
 
     generate(correct = true) {
         const container = document.querySelector('.source-container');
-        const { index } = document.querySelector('.cue-card.active').dataset;
+        const { index } = document.querySelector('.quote-card.active').dataset;
         this.clearAll();
         this.title(container, correct);
         this.information(container, index);

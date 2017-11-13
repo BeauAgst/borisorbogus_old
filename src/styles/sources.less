@@ -1,14 +1,15 @@
 .source-container {
     position: fixed;
     z-index: 2;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    transform: translateY(100%);
+    top: 2em;
+    bottom: 2em;
+    left: 100%;
+    width: 90%;
+
     transition: all .5s;
 
     &.active {
-        transform: none;
+        left: 10%;
     }
 
     &.correct {
@@ -22,25 +23,10 @@
         position: relative;
         box-sizing: border-box;
         margin: 0 auto;
-        padding: 60px;
+        padding: 1em;
+        height: 100%;
         background: #fdfdfd;
-        background: linear-gradient(to bottom, #DFE8EC 0%, white 8%) 0 60px;
-        background-size: 100% 30px;
         box-shadow: 2px 1px 19px rgba(0, 0, 0, 0.15);
-        line-height: 30px;
-        font-size: 18px;
-        width: 700px;
-        height: 75vh;
-        
-        &:after {
-            content: ''; 
-            position: absolute; 
-            width: 0px; 
-            top: 0; 
-            left: 40px; 
-            bottom: 0; 
-            border-left: 1px solid #F8D3D3;
-        }
     }
 
     .title {

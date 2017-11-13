@@ -5,6 +5,25 @@ const game = {
     usedQuotes: [],
 
     init() {
+        this.watchButton();
+    },
+
+    watchButton() {
+        const startButton = document.querySelector('.begin-game');
+        startButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            const introContainer = document.querySelector('.introduction');
+            const gameContainer = document.querySelector('.game-container');
+            introContainer.classList.add('removed');
+            setTimeout(() => {
+                document.body.removeChild(introContainer);
+            }, 700);
+            this.startGame();
+            gameContainer.classList.add('active');
+        });
+    },
+
+    startGame() {
         this.getCard();
         this.correctAnswer();
         this.wrongAnswer();
@@ -23,21 +42,21 @@ const game = {
 
     getQuote(index) {
         const { topic, quote } = quotes[index];
-        this.setCard(index, `On... ${topic}`, quote);
+        this.setCard(index, topic, quote);
     },
 
     clearCard() {
-        const container = document.querySelector('.cue-card-container');
-        const card = document.querySelector('.cue-card.active');
+        const container = document.querySelector('.quote-container');
+        const card = document.querySelector('.quote-card.active');
         container.removeChild(card);
     },
 
     setCard(index, topic, quoteArray) {
         const quote = this.splitQuote(quoteArray);
-        const container = document.querySelector('.cue-card-container');
+        const container = document.querySelector('.quote-container');
         const card = document.createElement('div');
-        const content = `<div class="inner"><div class="content"><div class="title"><span>${topic}</span></div><div class="quote">${quote}</div></div></div>`;
-        card.className = 'cue-card active';
+        const content = `<div class="inner"><div class="content"><div class="title"><span>Who had this to say on...</span><span><strong>${topic}</strong></span></div><div class="quote">${quote}</div></div></div>`;
+        card.className = 'quote-card active';
         card.dataset.index = index;
         card.innerHTML = content;
         container.appendChild(card);

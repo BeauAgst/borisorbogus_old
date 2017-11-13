@@ -1,8 +1,8 @@
-import buttons from './buttons';
+import game from './game';
 import trackMouse from './tracker';
 
 require('../styles/styles.less');
 
-buttons.init();
+game.init();
 trackMouse.init('.left-eye');
 
