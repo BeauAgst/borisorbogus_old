@@ -12,14 +12,14 @@
         >{{ quote }}</p>
       </div>
       <div class="quiz-question--answers">
-        <div
+        <button
           class="btn"
           @click="answerQuestion(question.boris)"
-        >Boris</div>
-        <div
+        >Boris</button>
+        <button
           class="btn btn_secondary"
           @click="answerQuestion(!question.boris)"
-        >Bogus</div>
+        >Bogus</button>
       </div>
     </div>
   </div>

@@ -30,7 +30,7 @@ import Header from '@/components/Header';
 import QuizIntro from '@/components/QuizIntro';
 import QuizGame from '@/components/QuizGame';
 import Footer from '@/components/Footer';
-import quizData from '@/assets/data';
+import quizData from '@/assets/questions.json';
 
 export default {
   name: 'app',

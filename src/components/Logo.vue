@@ -24,7 +24,7 @@ export default {
   display: inline-block;
   color: $tertiary--color;
   font-size: 3px;
-  animation: rotate 3s infinite linear;
+  animation: rotate 2s infinite linear;
 }
 
 .circle {
