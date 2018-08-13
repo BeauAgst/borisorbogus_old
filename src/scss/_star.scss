@@ -1,0 +1,28 @@
+.star {
+	position: relative;
+	display: inline-block;
+	width: 0px;
+	height: 0px;
+	border-right: 4em solid transparent;
+	border-bottom: 3em solid currentColor;
+	border-left: 4em solid transparent;
+	transform: rotate(36.66deg);
+	
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -4em;
+		width: 0;
+		height: 0;		
+		border-right: 4em solid transparent;
+		border-bottom: 3em solid currentColor;
+		border-left: 4em solid transparent;
+		transform: rotate(66.66deg);
+	}
+
+	&:after {
+		transform: rotate(286.66deg);
+	}
+}
