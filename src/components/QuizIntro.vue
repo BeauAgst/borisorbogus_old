@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 import Logo from '@/components/Logo';
 
 export default {
@@ -30,9 +31,7 @@ export default {
     Logo,
   },
   methods: {
-    startQuiz() {
-      this.$emit('quizStarted');
-    },
+    ...mapMutations(['startQuiz']),
   },
 };
 </script>

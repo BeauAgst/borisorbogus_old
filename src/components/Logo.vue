@@ -22,7 +22,7 @@ export default {
 
 .star-container {
   display: inline-block;
-  color: $tertiary--color;
+  color: $color--tertiary;
   font-size: 3px;
   animation: rotate 2s infinite linear;
 }
@@ -44,7 +44,7 @@ export default {
   transform: rotate(0deg);
   width: 66%;
   height: 66%;
-  color: $tertiary--color;
+  color: $color--tertiary;
   background: currentColor;
   animation: rotate 30s infinite linear;
 
@@ -65,7 +65,7 @@ export default {
   }
 
   &_backwards {
-    color: $secondary--color;
+    color: $color--secondary;
     margin-top: -25%;
     margin-left: -25%;
     width: 50%;

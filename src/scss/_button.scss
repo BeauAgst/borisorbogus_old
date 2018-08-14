@@ -11,12 +11,12 @@
 	line-height: 40px;
 	border-radius: 7px;
 	color: #fff;
-	background: $secondary--color;
+	background: $color--secondary;
 	border: none;
 	text-transform: uppercase;
 	font-family: 'Montserrat';
 	transition: all .3s;
-	font-size: 1rem;
+	font-size: 1em;
 
 	+ .btn {
 		margin-left: 1em;
@@ -29,14 +29,14 @@
 
 	&:hover {
 		color: #fff;
-		background: lighten($secondary--color, 5%);
+		background: lighten($color--secondary, 5%);
 	}
 
 	&_secondary {
-		background: $tertiary--color;
+		background: $color--tertiary;
 
 		&:hover {
-			background: darken($tertiary--color, 5%);			
+			background: darken($color--tertiary, 5%);			
 		}
 	}
 	

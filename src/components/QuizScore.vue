@@ -1,23 +1,18 @@
 <template>
   <div class="current-score">
-    <div class="current-score--correct">{{ current }}</div>
+    <div class="current-score--correct">{{ currentQuestionNumber }}</div>
     <div class="current-score--divider"></div>
-    <div class="current-score--total">{{ total }}</div>
+    <div class="current-score--total">{{ totalQuestions }}</div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'QuizScore',
-  props: {
-    current: {
-      type: Number,
-      required: true,
-    },
-    total: {
-      type: Number,
-      required: true,
-    },
+  computed: {
+    ...mapState(['currentQuestionNumber', 'totalQuestions']),
   },
 };
 </script>
@@ -31,7 +26,7 @@ $scoreboard--width: 70px;
   position: relative;
   width: $scoreboard--width;
   height: $scoreboard--width;
-  background: $secondary--color;
+  background: $color--secondary;
   font-weight: bold;
   border-radius: 7px;
 

@@ -2,15 +2,20 @@
   <footer class="footer">
     <ul class="footer--made-by">
       <li>Made by &nbsp;</li>
-      <li
-        v-for="(contributor, index) in contributors"
-        :key="contributor.name"
-      >
+      <li>
         <a
-          :href="contributor.url"
+          href="//www.beaugust.co.uk/"
           target="_blank"
           rel="noopener noreferrer"
-          >{{ contributorText(contributor.name, index, contributors.length) }}</a>
+        >Beau August</a>
+      </li>
+      <li>&nbsp;and&nbsp;</li>
+      <li>
+        <a
+          href="//www.beaugust.co.uk/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Your Name Could Be Here!</a>
       </li>
     </ul>
 
@@ -41,7 +46,11 @@ export default {
       contributors: [
         {
           name: 'Beau August',
-          url: '//www.beaugust.co.uk/',
+          url: '',
+        },
+        {
+          name: 'Your Name Could Be Here!',
+          url: '',
         },
       ],
       links: [
@@ -51,7 +60,7 @@ export default {
         },
         {
           title: 'Print-out Boris mask!',
-          url: '',
+          url: '/mask.pdf',
         },
       ],
     };

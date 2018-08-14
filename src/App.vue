@@ -1,23 +1,14 @@
 <template>
   <div id="app">
-    <Header
-      :totalQuestions="quizQuestions.length"
-      :quizStarted="quizStarted"
-    />
+    <Header/>
     <main class="quiz-content">
       <transition
         mode="out-in"
         name="fade"
       >
-        <QuizIntro
-          v-if="!quizStarted"
-          @quizStarted="startQuiz"
-        />
-        <QuizGame
-          v-else
-          :quizQuestions="quizQuestions"
-          @nextQuestion="updateQuestionNumber"
-        />
+        <QuizIntro v-if="!quizStarted"/>
+        <QuizGame v-else-if="quizStarted && !quizEnded"/>
+        <QuizOutro v-else/>
       </transition>
     </main>
     <Footer/>
@@ -25,12 +16,12 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
+import { mapState } from 'vuex';
 import Header from '@/components/Header';
 import QuizIntro from '@/components/QuizIntro';
 import QuizGame from '@/components/QuizGame';
+import QuizOutro from '@/components/QuizOutro';
 import Footer from '@/components/Footer';
-import quizData from '@/assets/questions.json';
 
 export default {
   name: 'app',
@@ -39,20 +30,13 @@ export default {
     Footer,
     QuizIntro,
     QuizGame,
-  },
-  data() {
-    return {
-      quizQuestions: [],
-    };
+    QuizOutro,
   },
   created() {
-    this.quizQuestions = quizData.slice(0);
-  },
-  methods: {
-    ...mapMutations(['startQuiz', 'updateQuestionNumber']),
+    this.$store.dispatch('getQuestions');
   },
   computed: {
-    ...mapState(['quizStarted']),
+    ...mapState(['quizStarted', 'quizEnded']),
   },
 };
 </script>
